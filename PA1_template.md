@@ -11,6 +11,7 @@ output:
 require(dplyr)
 require(ggplot2)
 require(pander)
+panderOptions('table.split.table', 120)
 ```
 
 
