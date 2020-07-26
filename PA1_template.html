@@ -369,8 +369,7 @@ summary {
 <p><em>Requires dplyr, pander and ggplot2 packages</em></p>
 <pre class="r"><code>require(dplyr)
 require(ggplot2)
-require(pander)
-panderOptions(&#39;table.split.table&#39;, 120)</code></pre>
+require(knitr)</code></pre>
 <div id="loading-and-preprocessing-the-data" class="section level2">
 <h2>Loading and preprocessing the data</h2>
 <ol style="list-style-type: decimal">
@@ -406,285 +405,280 @@ qplot(data = byDay, x = date, y = total.steps, geom = &quot;col&quot;,
 <li>Calculate and report the mean and median total number of steps taken per day</li>
 </ol>
 <p><em>has been calculated with the dplyr function</em></p>
-<pre class="r"><code>pandoc.table(byDay[,c(1,3,4)])</code></pre>
-<table style="width:57%;">
-<colgroup>
-<col width="18%"></col>
-<col width="18%"></col>
-<col width="20%"></col>
-</colgroup>
+<pre class="r"><code>knitr::kable(byDay[,c(1,3,4)], format = &quot;markdown&quot;)</code></pre>
+<table>
 <thead>
 <tr class="header">
-<th align="center">date</th>
-<th align="center">total.mean</th>
-<th align="center">total.median</th>
+<th align="left">date</th>
+<th align="right">total.mean</th>
+<th align="right">total.median</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center">2012-10-02</td>
-<td align="center">0.4375</td>
-<td align="center">63</td>
+<td align="left">2012-10-02</td>
+<td align="right">0.4375000</td>
+<td align="right">63.0</td>
 </tr>
 <tr class="even">
-<td align="center">2012-10-03</td>
-<td align="center">39.42</td>
-<td align="center">61</td>
+<td align="left">2012-10-03</td>
+<td align="right">39.4166667</td>
+<td align="right">61.0</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-10-04</td>
-<td align="center">42.07</td>
-<td align="center">56.5</td>
+<td align="left">2012-10-04</td>
+<td align="right">42.0694444</td>
+<td align="right">56.5</td>
 </tr>
 <tr class="even">
-<td align="center">2012-10-05</td>
-<td align="center">46.16</td>
-<td align="center">66</td>
+<td align="left">2012-10-05</td>
+<td align="right">46.1597222</td>
+<td align="right">66.0</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-10-06</td>
-<td align="center">53.54</td>
-<td align="center">67</td>
+<td align="left">2012-10-06</td>
+<td align="right">53.5416667</td>
+<td align="right">67.0</td>
 </tr>
 <tr class="even">
-<td align="center">2012-10-07</td>
-<td align="center">38.25</td>
-<td align="center">52.5</td>
+<td align="left">2012-10-07</td>
+<td align="right">38.2465278</td>
+<td align="right">52.5</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-10-09</td>
-<td align="center">44.48</td>
-<td align="center">48</td>
+<td align="left">2012-10-09</td>
+<td align="right">44.4826389</td>
+<td align="right">48.0</td>
 </tr>
 <tr class="even">
-<td align="center">2012-10-10</td>
-<td align="center">34.38</td>
-<td align="center">56.5</td>
+<td align="left">2012-10-10</td>
+<td align="right">34.3750000</td>
+<td align="right">56.5</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-10-11</td>
-<td align="center">35.78</td>
-<td align="center">35</td>
+<td align="left">2012-10-11</td>
+<td align="right">35.7777778</td>
+<td align="right">35.0</td>
 </tr>
 <tr class="even">
-<td align="center">2012-10-12</td>
-<td align="center">60.35</td>
-<td align="center">46</td>
+<td align="left">2012-10-12</td>
+<td align="right">60.3541667</td>
+<td align="right">46.0</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-10-13</td>
-<td align="center">43.15</td>
-<td align="center">45.5</td>
+<td align="left">2012-10-13</td>
+<td align="right">43.1458333</td>
+<td align="right">45.5</td>
 </tr>
 <tr class="even">
-<td align="center">2012-10-14</td>
-<td align="center">52.42</td>
-<td align="center">60.5</td>
+<td align="left">2012-10-14</td>
+<td align="right">52.4236111</td>
+<td align="right">60.5</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-10-15</td>
-<td align="center">35.2</td>
-<td align="center">54</td>
+<td align="left">2012-10-15</td>
+<td align="right">35.2048611</td>
+<td align="right">54.0</td>
 </tr>
 <tr class="even">
-<td align="center">2012-10-16</td>
-<td align="center">52.38</td>
-<td align="center">64</td>
+<td align="left">2012-10-16</td>
+<td align="right">52.3750000</td>
+<td align="right">64.0</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-10-17</td>
-<td align="center">46.71</td>
-<td align="center">61.5</td>
+<td align="left">2012-10-17</td>
+<td align="right">46.7083333</td>
+<td align="right">61.5</td>
 </tr>
 <tr class="even">
-<td align="center">2012-10-18</td>
-<td align="center">34.92</td>
-<td align="center">52.5</td>
+<td align="left">2012-10-18</td>
+<td align="right">34.9166667</td>
+<td align="right">52.5</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-10-19</td>
-<td align="center">41.07</td>
-<td align="center">74</td>
+<td align="left">2012-10-19</td>
+<td align="right">41.0729167</td>
+<td align="right">74.0</td>
 </tr>
 <tr class="even">
-<td align="center">2012-10-20</td>
-<td align="center">36.09</td>
-<td align="center">49</td>
+<td align="left">2012-10-20</td>
+<td align="right">36.0937500</td>
+<td align="right">49.0</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-10-21</td>
-<td align="center">30.63</td>
-<td align="center">48</td>
+<td align="left">2012-10-21</td>
+<td align="right">30.6284722</td>
+<td align="right">48.0</td>
 </tr>
 <tr class="even">
-<td align="center">2012-10-22</td>
-<td align="center">46.74</td>
-<td align="center">52</td>
+<td align="left">2012-10-22</td>
+<td align="right">46.7361111</td>
+<td align="right">52.0</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-10-23</td>
-<td align="center">30.97</td>
-<td align="center">56</td>
+<td align="left">2012-10-23</td>
+<td align="right">30.9652778</td>
+<td align="right">56.0</td>
 </tr>
 <tr class="even">
-<td align="center">2012-10-24</td>
-<td align="center">29.01</td>
-<td align="center">51.5</td>
+<td align="left">2012-10-24</td>
+<td align="right">29.0104167</td>
+<td align="right">51.5</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-10-25</td>
-<td align="center">8.653</td>
-<td align="center">35</td>
+<td align="left">2012-10-25</td>
+<td align="right">8.6527778</td>
+<td align="right">35.0</td>
 </tr>
 <tr class="even">
-<td align="center">2012-10-26</td>
-<td align="center">23.53</td>
-<td align="center">36.5</td>
+<td align="left">2012-10-26</td>
+<td align="right">23.5347222</td>
+<td align="right">36.5</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-10-27</td>
-<td align="center">35.14</td>
-<td align="center">72</td>
+<td align="left">2012-10-27</td>
+<td align="right">35.1354167</td>
+<td align="right">72.0</td>
 </tr>
 <tr class="even">
-<td align="center">2012-10-28</td>
-<td align="center">39.78</td>
-<td align="center">61</td>
+<td align="left">2012-10-28</td>
+<td align="right">39.7847222</td>
+<td align="right">61.0</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-10-29</td>
-<td align="center">17.42</td>
-<td align="center">54.5</td>
+<td align="left">2012-10-29</td>
+<td align="right">17.4236111</td>
+<td align="right">54.5</td>
 </tr>
 <tr class="even">
-<td align="center">2012-10-30</td>
-<td align="center">34.09</td>
-<td align="center">40</td>
+<td align="left">2012-10-30</td>
+<td align="right">34.0937500</td>
+<td align="right">40.0</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-10-31</td>
-<td align="center">53.52</td>
-<td align="center">83.5</td>
+<td align="left">2012-10-31</td>
+<td align="right">53.5208333</td>
+<td align="right">83.5</td>
 </tr>
 <tr class="even">
-<td align="center">2012-11-02</td>
-<td align="center">36.81</td>
-<td align="center">55.5</td>
+<td align="left">2012-11-02</td>
+<td align="right">36.8055556</td>
+<td align="right">55.5</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-11-03</td>
-<td align="center">36.7</td>
-<td align="center">59</td>
+<td align="left">2012-11-03</td>
+<td align="right">36.7048611</td>
+<td align="right">59.0</td>
 </tr>
 <tr class="even">
-<td align="center">2012-11-05</td>
-<td align="center">36.25</td>
-<td align="center">66</td>
+<td align="left">2012-11-05</td>
+<td align="right">36.2465278</td>
+<td align="right">66.0</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-11-06</td>
-<td align="center">28.94</td>
-<td align="center">52</td>
+<td align="left">2012-11-06</td>
+<td align="right">28.9375000</td>
+<td align="right">52.0</td>
 </tr>
 <tr class="even">
-<td align="center">2012-11-07</td>
-<td align="center">44.73</td>
-<td align="center">58</td>
+<td align="left">2012-11-07</td>
+<td align="right">44.7326389</td>
+<td align="right">58.0</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-11-08</td>
-<td align="center">11.18</td>
-<td align="center">42.5</td>
+<td align="left">2012-11-08</td>
+<td align="right">11.1770833</td>
+<td align="right">42.5</td>
 </tr>
 <tr class="even">
-<td align="center">2012-11-11</td>
-<td align="center">43.78</td>
-<td align="center">55</td>
+<td align="left">2012-11-11</td>
+<td align="right">43.7777778</td>
+<td align="right">55.0</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-11-12</td>
-<td align="center">37.38</td>
-<td align="center">42</td>
+<td align="left">2012-11-12</td>
+<td align="right">37.3784722</td>
+<td align="right">42.0</td>
 </tr>
 <tr class="even">
-<td align="center">2012-11-13</td>
-<td align="center">25.47</td>
-<td align="center">57</td>
+<td align="left">2012-11-13</td>
+<td align="right">25.4722222</td>
+<td align="right">57.0</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-11-15</td>
-<td align="center">0.1424</td>
-<td align="center">20.5</td>
+<td align="left">2012-11-15</td>
+<td align="right">0.1423611</td>
+<td align="right">20.5</td>
 </tr>
 <tr class="even">
-<td align="center">2012-11-16</td>
-<td align="center">18.89</td>
-<td align="center">43</td>
+<td align="left">2012-11-16</td>
+<td align="right">18.8923611</td>
+<td align="right">43.0</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-11-17</td>
-<td align="center">49.79</td>
-<td align="center">65.5</td>
+<td align="left">2012-11-17</td>
+<td align="right">49.7881944</td>
+<td align="right">65.5</td>
 </tr>
 <tr class="even">
-<td align="center">2012-11-18</td>
-<td align="center">52.47</td>
-<td align="center">80</td>
+<td align="left">2012-11-18</td>
+<td align="right">52.4652778</td>
+<td align="right">80.0</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-11-19</td>
-<td align="center">30.7</td>
-<td align="center">34</td>
+<td align="left">2012-11-19</td>
+<td align="right">30.6979167</td>
+<td align="right">34.0</td>
 </tr>
 <tr class="even">
-<td align="center">2012-11-20</td>
-<td align="center">15.53</td>
-<td align="center">58</td>
+<td align="left">2012-11-20</td>
+<td align="right">15.5277778</td>
+<td align="right">58.0</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-11-21</td>
-<td align="center">44.4</td>
-<td align="center">55</td>
+<td align="left">2012-11-21</td>
+<td align="right">44.3993056</td>
+<td align="right">55.0</td>
 </tr>
 <tr class="even">
-<td align="center">2012-11-22</td>
-<td align="center">70.93</td>
-<td align="center">65</td>
+<td align="left">2012-11-22</td>
+<td align="right">70.9270833</td>
+<td align="right">65.0</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-11-23</td>
-<td align="center">73.59</td>
-<td align="center">113</td>
+<td align="left">2012-11-23</td>
+<td align="right">73.5902778</td>
+<td align="right">113.0</td>
 </tr>
 <tr class="even">
-<td align="center">2012-11-24</td>
-<td align="center">50.27</td>
-<td align="center">65.5</td>
+<td align="left">2012-11-24</td>
+<td align="right">50.2708333</td>
+<td align="right">65.5</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-11-25</td>
-<td align="center">41.09</td>
-<td align="center">84</td>
+<td align="left">2012-11-25</td>
+<td align="right">41.0902778</td>
+<td align="right">84.0</td>
 </tr>
 <tr class="even">
-<td align="center">2012-11-26</td>
-<td align="center">38.76</td>
-<td align="center">53</td>
+<td align="left">2012-11-26</td>
+<td align="right">38.7569444</td>
+<td align="right">53.0</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-11-27</td>
-<td align="center">47.38</td>
-<td align="center">57</td>
+<td align="left">2012-11-27</td>
+<td align="right">47.3819444</td>
+<td align="right">57.0</td>
 </tr>
 <tr class="even">
-<td align="center">2012-11-28</td>
-<td align="center">35.36</td>
-<td align="center">70</td>
+<td align="left">2012-11-28</td>
+<td align="right">35.3576389</td>
+<td align="right">70.0</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-11-29</td>
-<td align="center">24.47</td>
-<td align="center">44.5</td>
+<td align="left">2012-11-29</td>
+<td align="right">24.4687500</td>
+<td align="right">44.5</td>
 </tr>
 </tbody>
 </table>
@@ -748,325 +742,320 @@ ggplot(data = newByDay, aes(x = date, y = total.steps))+
         labs(title = &quot;Total steps taken each Day&quot;)+
         labs(x = &quot;Date&quot;, y = &quot;Total Steps&quot; )</code></pre>
 <p><img src="data:image/png;base64,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" /><!-- --></p>
-<pre class="r"><code>pandoc.table(newByDay[,c(1,3,4)])</code></pre>
-<table style="width:57%;">
-<colgroup>
-<col width="18%"></col>
-<col width="18%"></col>
-<col width="20%"></col>
-</colgroup>
+<pre class="r"><code>knitr::kable(newByDay[,c(1,3,4)], format = &quot;markdown&quot;)</code></pre>
+<table>
 <thead>
 <tr class="header">
-<th align="center">date</th>
-<th align="center">total.mean</th>
-<th align="center">total.median</th>
+<th align="left">date</th>
+<th align="right">total.mean</th>
+<th align="right">total.median</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center">2012-10-01</td>
-<td align="center">37.38</td>
-<td align="center">37.45</td>
+<td align="left">2012-10-01</td>
+<td align="right">37.3825996</td>
+<td align="right">37.45283</td>
 </tr>
 <tr class="even">
-<td align="center">2012-10-02</td>
-<td align="center">0.4375</td>
-<td align="center">63</td>
+<td align="left">2012-10-02</td>
+<td align="right">0.4375000</td>
+<td align="right">63.00000</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-10-03</td>
-<td align="center">39.42</td>
-<td align="center">61</td>
+<td align="left">2012-10-03</td>
+<td align="right">39.4166667</td>
+<td align="right">61.00000</td>
 </tr>
 <tr class="even">
-<td align="center">2012-10-04</td>
-<td align="center">42.07</td>
-<td align="center">56.5</td>
+<td align="left">2012-10-04</td>
+<td align="right">42.0694444</td>
+<td align="right">56.50000</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-10-05</td>
-<td align="center">46.16</td>
-<td align="center">66</td>
+<td align="left">2012-10-05</td>
+<td align="right">46.1597222</td>
+<td align="right">66.00000</td>
 </tr>
 <tr class="even">
-<td align="center">2012-10-06</td>
-<td align="center">53.54</td>
-<td align="center">67</td>
+<td align="left">2012-10-06</td>
+<td align="right">53.5416667</td>
+<td align="right">67.00000</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-10-07</td>
-<td align="center">38.25</td>
-<td align="center">52.5</td>
+<td align="left">2012-10-07</td>
+<td align="right">38.2465278</td>
+<td align="right">52.50000</td>
 </tr>
 <tr class="even">
-<td align="center">2012-10-08</td>
-<td align="center">37.38</td>
-<td align="center">37.45</td>
+<td align="left">2012-10-08</td>
+<td align="right">37.3825996</td>
+<td align="right">37.45283</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-10-09</td>
-<td align="center">44.48</td>
-<td align="center">48</td>
+<td align="left">2012-10-09</td>
+<td align="right">44.4826389</td>
+<td align="right">48.00000</td>
 </tr>
 <tr class="even">
-<td align="center">2012-10-10</td>
-<td align="center">34.38</td>
-<td align="center">56.5</td>
+<td align="left">2012-10-10</td>
+<td align="right">34.3750000</td>
+<td align="right">56.50000</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-10-11</td>
-<td align="center">35.78</td>
-<td align="center">35</td>
+<td align="left">2012-10-11</td>
+<td align="right">35.7777778</td>
+<td align="right">35.00000</td>
 </tr>
 <tr class="even">
-<td align="center">2012-10-12</td>
-<td align="center">60.35</td>
-<td align="center">46</td>
+<td align="left">2012-10-12</td>
+<td align="right">60.3541667</td>
+<td align="right">46.00000</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-10-13</td>
-<td align="center">43.15</td>
-<td align="center">45.5</td>
+<td align="left">2012-10-13</td>
+<td align="right">43.1458333</td>
+<td align="right">45.50000</td>
 </tr>
 <tr class="even">
-<td align="center">2012-10-14</td>
-<td align="center">52.42</td>
-<td align="center">60.5</td>
+<td align="left">2012-10-14</td>
+<td align="right">52.4236111</td>
+<td align="right">60.50000</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-10-15</td>
-<td align="center">35.2</td>
-<td align="center">54</td>
+<td align="left">2012-10-15</td>
+<td align="right">35.2048611</td>
+<td align="right">54.00000</td>
 </tr>
 <tr class="even">
-<td align="center">2012-10-16</td>
-<td align="center">52.38</td>
-<td align="center">64</td>
+<td align="left">2012-10-16</td>
+<td align="right">52.3750000</td>
+<td align="right">64.00000</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-10-17</td>
-<td align="center">46.71</td>
-<td align="center">61.5</td>
+<td align="left">2012-10-17</td>
+<td align="right">46.7083333</td>
+<td align="right">61.50000</td>
 </tr>
 <tr class="even">
-<td align="center">2012-10-18</td>
-<td align="center">34.92</td>
-<td align="center">52.5</td>
+<td align="left">2012-10-18</td>
+<td align="right">34.9166667</td>
+<td align="right">52.50000</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-10-19</td>
-<td align="center">41.07</td>
-<td align="center">74</td>
+<td align="left">2012-10-19</td>
+<td align="right">41.0729167</td>
+<td align="right">74.00000</td>
 </tr>
 <tr class="even">
-<td align="center">2012-10-20</td>
-<td align="center">36.09</td>
-<td align="center">49</td>
+<td align="left">2012-10-20</td>
+<td align="right">36.0937500</td>
+<td align="right">49.00000</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-10-21</td>
-<td align="center">30.63</td>
-<td align="center">48</td>
+<td align="left">2012-10-21</td>
+<td align="right">30.6284722</td>
+<td align="right">48.00000</td>
 </tr>
 <tr class="even">
-<td align="center">2012-10-22</td>
-<td align="center">46.74</td>
-<td align="center">52</td>
+<td align="left">2012-10-22</td>
+<td align="right">46.7361111</td>
+<td align="right">52.00000</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-10-23</td>
-<td align="center">30.97</td>
-<td align="center">56</td>
+<td align="left">2012-10-23</td>
+<td align="right">30.9652778</td>
+<td align="right">56.00000</td>
 </tr>
 <tr class="even">
-<td align="center">2012-10-24</td>
-<td align="center">29.01</td>
-<td align="center">51.5</td>
+<td align="left">2012-10-24</td>
+<td align="right">29.0104167</td>
+<td align="right">51.50000</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-10-25</td>
-<td align="center">8.653</td>
-<td align="center">35</td>
+<td align="left">2012-10-25</td>
+<td align="right">8.6527778</td>
+<td align="right">35.00000</td>
 </tr>
 <tr class="even">
-<td align="center">2012-10-26</td>
-<td align="center">23.53</td>
-<td align="center">36.5</td>
+<td align="left">2012-10-26</td>
+<td align="right">23.5347222</td>
+<td align="right">36.50000</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-10-27</td>
-<td align="center">35.14</td>
-<td align="center">72</td>
+<td align="left">2012-10-27</td>
+<td align="right">35.1354167</td>
+<td align="right">72.00000</td>
 </tr>
 <tr class="even">
-<td align="center">2012-10-28</td>
-<td align="center">39.78</td>
-<td align="center">61</td>
+<td align="left">2012-10-28</td>
+<td align="right">39.7847222</td>
+<td align="right">61.00000</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-10-29</td>
-<td align="center">17.42</td>
-<td align="center">54.5</td>
+<td align="left">2012-10-29</td>
+<td align="right">17.4236111</td>
+<td align="right">54.50000</td>
 </tr>
 <tr class="even">
-<td align="center">2012-10-30</td>
-<td align="center">34.09</td>
-<td align="center">40</td>
+<td align="left">2012-10-30</td>
+<td align="right">34.0937500</td>
+<td align="right">40.00000</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-10-31</td>
-<td align="center">53.52</td>
-<td align="center">83.5</td>
+<td align="left">2012-10-31</td>
+<td align="right">53.5208333</td>
+<td align="right">83.50000</td>
 </tr>
 <tr class="even">
-<td align="center">2012-11-01</td>
-<td align="center">37.38</td>
-<td align="center">37.45</td>
+<td align="left">2012-11-01</td>
+<td align="right">37.3825996</td>
+<td align="right">37.45283</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-11-02</td>
-<td align="center">36.81</td>
-<td align="center">55.5</td>
+<td align="left">2012-11-02</td>
+<td align="right">36.8055556</td>
+<td align="right">55.50000</td>
 </tr>
 <tr class="even">
-<td align="center">2012-11-03</td>
-<td align="center">36.7</td>
-<td align="center">59</td>
+<td align="left">2012-11-03</td>
+<td align="right">36.7048611</td>
+<td align="right">59.00000</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-11-04</td>
-<td align="center">37.38</td>
-<td align="center">37.45</td>
+<td align="left">2012-11-04</td>
+<td align="right">37.3825996</td>
+<td align="right">37.45283</td>
 </tr>
 <tr class="even">
-<td align="center">2012-11-05</td>
-<td align="center">36.25</td>
-<td align="center">66</td>
+<td align="left">2012-11-05</td>
+<td align="right">36.2465278</td>
+<td align="right">66.00000</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-11-06</td>
-<td align="center">28.94</td>
-<td align="center">52</td>
+<td align="left">2012-11-06</td>
+<td align="right">28.9375000</td>
+<td align="right">52.00000</td>
 </tr>
 <tr class="even">
-<td align="center">2012-11-07</td>
-<td align="center">44.73</td>
-<td align="center">58</td>
+<td align="left">2012-11-07</td>
+<td align="right">44.7326389</td>
+<td align="right">58.00000</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-11-08</td>
-<td align="center">11.18</td>
-<td align="center">42.5</td>
+<td align="left">2012-11-08</td>
+<td align="right">11.1770833</td>
+<td align="right">42.50000</td>
 </tr>
 <tr class="even">
-<td align="center">2012-11-09</td>
-<td align="center">37.38</td>
-<td align="center">37.45</td>
+<td align="left">2012-11-09</td>
+<td align="right">37.3825996</td>
+<td align="right">37.45283</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-11-10</td>
-<td align="center">37.38</td>
-<td align="center">37.45</td>
+<td align="left">2012-11-10</td>
+<td align="right">37.3825996</td>
+<td align="right">37.45283</td>
 </tr>
 <tr class="even">
-<td align="center">2012-11-11</td>
-<td align="center">43.78</td>
-<td align="center">55</td>
+<td align="left">2012-11-11</td>
+<td align="right">43.7777778</td>
+<td align="right">55.00000</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-11-12</td>
-<td align="center">37.38</td>
-<td align="center">42</td>
+<td align="left">2012-11-12</td>
+<td align="right">37.3784722</td>
+<td align="right">42.00000</td>
 </tr>
 <tr class="even">
-<td align="center">2012-11-13</td>
-<td align="center">25.47</td>
-<td align="center">57</td>
+<td align="left">2012-11-13</td>
+<td align="right">25.4722222</td>
+<td align="right">57.00000</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-11-14</td>
-<td align="center">37.38</td>
-<td align="center">37.45</td>
+<td align="left">2012-11-14</td>
+<td align="right">37.3825996</td>
+<td align="right">37.45283</td>
 </tr>
 <tr class="even">
-<td align="center">2012-11-15</td>
-<td align="center">0.1424</td>
-<td align="center">20.5</td>
+<td align="left">2012-11-15</td>
+<td align="right">0.1423611</td>
+<td align="right">20.50000</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-11-16</td>
-<td align="center">18.89</td>
-<td align="center">43</td>
+<td align="left">2012-11-16</td>
+<td align="right">18.8923611</td>
+<td align="right">43.00000</td>
 </tr>
 <tr class="even">
-<td align="center">2012-11-17</td>
-<td align="center">49.79</td>
-<td align="center">65.5</td>
+<td align="left">2012-11-17</td>
+<td align="right">49.7881944</td>
+<td align="right">65.50000</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-11-18</td>
-<td align="center">52.47</td>
-<td align="center">80</td>
+<td align="left">2012-11-18</td>
+<td align="right">52.4652778</td>
+<td align="right">80.00000</td>
 </tr>
 <tr class="even">
-<td align="center">2012-11-19</td>
-<td align="center">30.7</td>
-<td align="center">34</td>
+<td align="left">2012-11-19</td>
+<td align="right">30.6979167</td>
+<td align="right">34.00000</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-11-20</td>
-<td align="center">15.53</td>
-<td align="center">58</td>
+<td align="left">2012-11-20</td>
+<td align="right">15.5277778</td>
+<td align="right">58.00000</td>
 </tr>
 <tr class="even">
-<td align="center">2012-11-21</td>
-<td align="center">44.4</td>
-<td align="center">55</td>
+<td align="left">2012-11-21</td>
+<td align="right">44.3993056</td>
+<td align="right">55.00000</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-11-22</td>
-<td align="center">70.93</td>
-<td align="center">65</td>
+<td align="left">2012-11-22</td>
+<td align="right">70.9270833</td>
+<td align="right">65.00000</td>
 </tr>
 <tr class="even">
-<td align="center">2012-11-23</td>
-<td align="center">73.59</td>
-<td align="center">113</td>
+<td align="left">2012-11-23</td>
+<td align="right">73.5902778</td>
+<td align="right">113.00000</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-11-24</td>
-<td align="center">50.27</td>
-<td align="center">65.5</td>
+<td align="left">2012-11-24</td>
+<td align="right">50.2708333</td>
+<td align="right">65.50000</td>
 </tr>
 <tr class="even">
-<td align="center">2012-11-25</td>
-<td align="center">41.09</td>
-<td align="center">84</td>
+<td align="left">2012-11-25</td>
+<td align="right">41.0902778</td>
+<td align="right">84.00000</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-11-26</td>
-<td align="center">38.76</td>
-<td align="center">53</td>
+<td align="left">2012-11-26</td>
+<td align="right">38.7569444</td>
+<td align="right">53.00000</td>
 </tr>
 <tr class="even">
-<td align="center">2012-11-27</td>
-<td align="center">47.38</td>
-<td align="center">57</td>
+<td align="left">2012-11-27</td>
+<td align="right">47.3819444</td>
+<td align="right">57.00000</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-11-28</td>
-<td align="center">35.36</td>
-<td align="center">70</td>
+<td align="left">2012-11-28</td>
+<td align="right">35.3576389</td>
+<td align="right">70.00000</td>
 </tr>
 <tr class="even">
-<td align="center">2012-11-29</td>
-<td align="center">24.47</td>
-<td align="center">44.5</td>
+<td align="left">2012-11-29</td>
+<td align="right">24.4687500</td>
+<td align="right">44.50000</td>
 </tr>
 <tr class="odd">
-<td align="center">2012-11-30</td>
-<td align="center">37.38</td>
-<td align="center">37.45</td>
+<td align="left">2012-11-30</td>
+<td align="right">37.3825996</td>
+<td align="right">37.45283</td>
 </tr>
 </tbody>
 </table>

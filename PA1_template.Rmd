@@ -9,8 +9,7 @@ output:
 ```{r requiremens, message=FALSE}
 require(dplyr)
 require(ggplot2)
-require(pander)
-panderOptions('table.split.table', 120)
+require(knitr)
 ```
 
 
@@ -59,8 +58,8 @@ qplot(data = byDay, x = date, y = total.steps, geom = "col",
   
   
   *has been calculated with the dplyr function*
-```{r table, message=FALSE, results = "asis"}
-pandoc.table(byDay[,c(1,3,4)])
+```{r table, message=FALSE}
+knitr::kable(byDay[,c(1,3,4)], format = "markdown")
 ```
 
 
@@ -130,7 +129,7 @@ ggplot(data = newByDay, aes(x = date, y = total.steps))+
         labs(title = "Total steps taken each Day")+
         labs(x = "Date", y = "Total Steps" )
 
-pandoc.table(newByDay[,c(1,3,4)])
+knitr::kable(newByDay[,c(1,3,4)], format = "markdown")
 ```
   
 Do these values differ from the estimates from the first part of the assignment? **YES**   
